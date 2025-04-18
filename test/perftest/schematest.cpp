@@ -20,7 +20,7 @@ static char* ReadFile(const char* filename, Allocator& allocator) {
         "../../bin/",
         "../../../bin/"
     };
-    char buffer[1024];
+    char buffer[4096];
     FILE *fp = 0;
     for (size_t i = 0; i < sizeof(paths) / sizeof(paths[0]); i++) {
         sprintf(buffer, "%s%s", paths[i], filename);
