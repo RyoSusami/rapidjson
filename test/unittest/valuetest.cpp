@@ -1512,8 +1512,8 @@ TEST(Value, ObjectHelperRangeFor) {
     {
         int i = 0;
         for (auto& m : x.GetObject()) {
-            char name[10];
-            sprintf(name, "%d", i);
+            char name[12];
+            snprintf(name, sizeof(name), "%d", i);
             EXPECT_STREQ(name, m.name.GetString());
             EXPECT_EQ(i, m.value.GetInt());
             i++;
@@ -1523,8 +1523,8 @@ TEST(Value, ObjectHelperRangeFor) {
     {
         int i = 0;
         for (const auto& m : const_cast<const Value&>(x).GetObject()) {
-            char name[10];
-            sprintf(name, "%d", i);
+            char name[12];
+            snprintf(name, sizeof(name), "%d", i);
             EXPECT_STREQ(name, m.name.GetString());
             EXPECT_EQ(i, m.value.GetInt());
             i++;
